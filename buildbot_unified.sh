@@ -1,7 +1,6 @@
 #!/bin/bash
 echo ""
-echo "LineageOS 18.x Unified Buildbot"
-echo "ATTENTION: this script syncs repo on each run"
+echo "LineageOS 18.x Unified Buildbot - Iceows version"
 echo "Executing in 5 seconds - CTRL-C to exit"
 echo ""
 sleep 5
@@ -21,11 +20,20 @@ then
     exit 1
 fi
 
+NOSYNC=false
 PERSONAL=false
-if [ ${!#} == "personal" ]
-then
-    PERSONAL=true
-fi
+for var in "${@:2}"
+do
+    if [ ${var} == "nosync" ]
+    then
+        NOSYNC=true
+    fi
+    if [ ${var} == "personal" ]
+    then
+        PERSONAL=true
+    fi
+done
+
 
 # Abort early on error
 set -eE
@@ -42,19 +50,21 @@ BUILD_DATE="$(date +%Y%m%d)"
 WITHOUT_CHECK_API=true
 WITH_SU=true
 
-echo "Preparing local manifests"
-mkdir -p .repo/local_manifests
-cp ./lineage_build_unified/local_manifests_${MODE}/*.xml .repo/local_manifests
-echo ""
+prep_build() {
+	echo "Preparing local manifests"
+	mkdir -p .repo/local_manifests
+	cp ./lineage_build_unified/local_manifests_${MODE}/*.xml .repo/local_manifests
+	echo ""
 
-echo "Syncing repos"
-repo sync -c --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
-echo ""
+	echo "Syncing repos"
+	repo sync -c --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
+	echo ""
 
-echo "Setting up build environment"
-source build/envsetup.sh &> /dev/null
-mkdir -p ~/build-output
-echo ""
+	echo "Setting up build environment"
+	source build/envsetup.sh &> /dev/null
+	mkdir -p ~/build-output
+	echo ""
+}
 
 apply_patches() {
     echo "Applying patch group ${1}"
@@ -83,8 +93,15 @@ finalize_treble() {
 }
 
 build_device() {
-    brunch ${1}
-    mv $OUT/lineage-*.zip ~/build-output/lineage-18.1-$BUILD_DATE-UNOFFICIAL-${1}$($PERSONAL && echo "-personal" || echo "").zip
+    if [ ${1} == "arm64" ]
+    then
+        lunch lineage_arm64-userdebug
+        make -j$(nproc --all) systemimage
+        mv $OUT/system.img ~/build-output/lineage-18.1-$BUILD_DATE-UNOFFICIAL-arm64$(${PERSONAL} && echo "-personal" || echo "").img
+    else
+        brunch ${1}
+        mv $OUT/lineage-*.zip ~/build-output/lineage-18.1-$BUILD_DATE-UNOFFICIAL-${1}$($PERSONAL && echo "-personal" || echo "").zip
+    fi
 }
 
 build_treble() {
@@ -101,21 +118,31 @@ build_treble() {
     mv $OUT/system.img ~/build-output/lineage-18.1-$BUILD_DATE-UNOFFICIAL-${TARGET}$(${PERSONAL} && echo "-personal" || echo "").img
 }
 
-echo "Applying patches"
-prep_${MODE}
-apply_patches patches_platform
-apply_patches patches_${MODE}
-if ${PERSONAL}
+if ${NOSYNC}
 then
-    apply_patches patches_platform_personal
-    apply_patches patches_${MODE}_personal
+    echo "ATTENTION: syncing/patching skipped!"
+    echo ""
+    echo "Setting up build environment"
+    source build/envsetup.sh &> /dev/null
+    echo ""
+else
+    prep_build
+    echo "Applying patches"
+    prep_${MODE}
+    apply_patches patches_platform
+    apply_patches patches_${MODE}
+    if ${PERSONAL}
+    then
+        apply_patches patches_platform_personal
+        apply_patches patches_${MODE}_personal
+    fi
+    finalize_${MODE}
+    echo ""
 fi
-finalize_${MODE}
-echo ""
 
 for var in "${@:2}"
 do
-    if [ ${var} == "personal" ]
+    if [ ${var} == "nosync" ] || [ ${var} == "personal" ]
     then
         continue
     fi
