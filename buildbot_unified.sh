@@ -22,7 +22,7 @@ fi
 
 NOSYNC=false
 PERSONAL=false
-for var in "${@:2}"
+for var in "${@:3}"
 do
     if [ ${var} == "nosync" ]
     then
@@ -32,6 +32,10 @@ do
     then
         PERSONAL=true
     fi
+    if [ ${var} == "iceows" ]
+    then
+        ICEOWS=true
+    fi    
 done
 
 
@@ -136,13 +140,19 @@ else
         apply_patches patches_platform_personal
         apply_patches patches_${MODE}_personal
     fi
+    if ${ICEOWS}
+    then
+        apply_patches patches_platform_iceows
+        apply_patches patches_${MODE}_iceows
+    fi
+    
     finalize_${MODE}
     echo ""
 fi
 
-for var in "${@:2}"
+for var in "${@:3}"
 do
-    if [ ${var} == "nosync" ] || [ ${var} == "personal" ]
+    if [ ${var} == "nosync" ] || [ ${var} == "personal" ]  || [ ${var} == "iceows" ]
     then
         continue
     fi
