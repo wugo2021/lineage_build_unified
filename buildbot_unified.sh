@@ -22,7 +22,8 @@ fi
 
 NOSYNC=false
 PERSONAL=false
-for var in "${@:3}"
+ICEOWS=false
+for var in "${@:2}"
 do
     if [ ${var} == "nosync" ]
     then
@@ -37,6 +38,9 @@ do
         ICEOWS=true
     fi    
 done
+
+echo "Building with NoSync : $NOSYNC - Personal patch : $PERSONAL - Iceows patch : " $ICEOWS
+
 
 
 # Abort early on error
@@ -150,7 +154,7 @@ else
     echo ""
 fi
 
-for var in "${@:3}"
+for var in "${@:2}"
 do
     if [ ${var} == "nosync" ] || [ ${var} == "personal" ]  || [ ${var} == "iceows" ]
     then
