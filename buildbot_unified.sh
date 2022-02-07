@@ -84,6 +84,7 @@ prep_device() {
 }
 
 prep_treble() {
+    echo "Applying patch treble prerequisite and phh"
     apply_patches patches_treble_prerequisite
     apply_patches patches_treble_phh
 }
