@@ -5,7 +5,7 @@ To get started with building LineageOS GSI, you'll need to get familiar with [Gi
 
 First, open a new Terminal window, which defaults to your home directory.  Clone the modified treble_experimentations repo there:
 
-    git clone https://github.com/AndyCGYan/treble_experimentations
+    git clone https://github.com/iceows/treble_experimentations
 
 Create a new working directory for your LineageOS build and navigate to it:
 
@@ -17,19 +17,27 @@ Initialize your LineageOS workspace:
 
 Clone both this and the patches repos:
 
-    git clone https://github.com/AndyCGYan/lineage_build_unified lineage_build_unified -b lineage-18.1
-    git clone https://github.com/AndyCGYan/lineage_patches_unified lineage_patches_unified -b lineage-18.1
+    git clone https://github.com/iceows/lineage_build_unified lineage_build_unified -b lineage-18.1
+    git clone https://github.com/iceows/lineage_patches_unified lineage_patches_unified -b lineage-18.1
 
-Finally, start the build script - for example, to build for all supported archs:
+Finally, start the build script :
 
-    bash lineage_build_unified/buildbot_unified.sh treble 32B A64B 64B
+    bash lineage_build_unified/buildbot_unified.sh treble 64B
+    
+or to include AndyCG patch
+    bash lineage_build_unified/buildbot_unified.sh treble personal iceows 64B
+
+or to include also Iceows patch
+    bash lineage_build_unified/buildbot_unified.sh treble personal iceows 64B
 
 Be sure to update the cloned repos from time to time!
 
 ---
 
-Note: A-only and VNDKLite targets are generated from AB images instead of source-built - refer to [sas-creator](https://github.com/AndyCGYan/sas-creator).
+A-only targets afor Huawei hi6250 re generated from AB images instead of source-built - refer to [sas-creator](https://github.com/iceows/huawei-creator).
+
+	sudo ./run-huawei-full-opt.sh "myimage.img"  "LeaOS" 
 
 ---
 
-This script is also used to make device-specific and/or personal builds. To do so, understand the script, and try the `device` and `personal` keywords.
+This script is also used to make builds without sync repo. To do so add nosync in the command build line.
