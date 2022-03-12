@@ -3,13 +3,14 @@
 
 To get started with building LineageOS GSI, you'll need to get familiar with [Git and Repo](https://source.android.com/source/using-repo.html), and set up your environment by referring to [LineageOS Wiki](https://wiki.lineageos.org/devices/redfin/build) (mainly "Install the build packages") and [How to build a GSI](https://github.com/phhusson/treble_experimentations/wiki/How-to-build-a-GSI%3F).
 
-First, open a new Terminal window, which defaults to your home directory.  Clone the modified treble_experimentations repo there:
+
+First, open a new Terminal window, create a new working directory for your LineageOS build (leaos for example) and navigate to it:
+
+    mkdir leaos; cd leaos
+    
+Clone the modified treble_experimentations repo there:
 
     git clone https://github.com/iceows/treble_experimentations
-
-Create a new working directory for your LineageOS build and navigate to it:
-
-    mkdir lineage-18.x-build-gsi; cd lineage-18.x-build-gsi
 
 Initialize your LineageOS workspace:
 
