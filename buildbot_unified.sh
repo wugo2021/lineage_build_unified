@@ -39,7 +39,7 @@ do
     fi    
 done
 
-echo "Building with NoSync : $NOSYNC - Personal patch : $PERSONAL - Iceows patch : " $ICEOWS
+echo "Building with NoSync : $NOSYNC - Personal patch : $PERSONAL - Iceows patch : $ICEOWS - Mode : ${MODE}"
 
 
 
