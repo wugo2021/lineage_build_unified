@@ -11,9 +11,6 @@ Create a new working directory for your LineageOS build and navigate to it:
 
     mkdir lineage-18.x-build-gsi; cd lineage-18.x-build-gsi
 
- install git-repo
-
-    sudo snap install git-repo
 
 Initialize your LineageOS workspace:
 
