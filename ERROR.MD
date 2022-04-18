@@ -2,14 +2,14 @@
 File "/home/hu/lineage-18.x-build-gsi/.repo/repo/main.py", line 79
     file=sys.stderr)
         ^
-----------------------------------------1----------------------------
-一种解决方案是修改 /usr/bin/repo 的第一行并将其更改为
+
+1.一种解决方案是修改 /usr/bin/repo 的第一行并将其更改为
 
 #!/usr/bin/python
 到
 #!/usr/bin/python3
 这要求系统使用 Python3 而不是默认的 Python。
------------------------------------------------2-------------------------
+2.
 
 ```
 mkdir -p ~/.bin
@@ -17,7 +17,7 @@ PATH="${HOME}/.bin:${PATH}"
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
 chmod a+rx ~/.bin/repo
 ```
---------------------------------------------3----------------------------------------
+3.
 ```
 mkdir ~/bin
 PATH=~/bin:$PATH
