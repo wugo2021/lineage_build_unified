@@ -2,7 +2,29 @@
 ## Building PHH-based LineageOS GSIs ##
 
 To get started with building LineageOS GSI, you'll need to get familiar with [Git and Repo](https://source.android.com/source/using-repo.html), and set up your environment by referring to [LineageOS Wiki](https://wiki.lineageos.org/devices/redfin/build) (mainly "Install the build packages") and [How to build a GSI](https://github.com/phhusson/treble_experimentations/wiki/How-to-build-a-GSI%3F).
+ ### Installing dependencies and Repo ### (sudo apt-get update)
 
+Several packages are needed in order to build crDroid
+```
+sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-gtk3-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev python3.10.4
+```
+Replenish
+```
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.6
+```
+Install Repo tool
+```
+mkdir ~/bin
+PATH=~/bin:$PATH
+git clone https://gerrit-googlesource.lug.ustc.edu.cn/git-repo
+cd git-repo/
+cp repo ~/bin/
+chmod a+x ~/bin/repo
+cd
+```
 
 First, open a new Terminal window, create a new working directory for your LineageOS build (leaos for example) and navigate to it:
 
