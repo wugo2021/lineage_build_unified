@@ -1,0 +1,37 @@
+  *******************************************************************************************
+File "/home/hu/lineage-18.x-build-gsi/.repo/repo/main.py", line 79
+    file=sys.stderr)
+        ^
+----------------------------------------1----------------------------
+一种解决方案是修改 /usr/bin/repo 的第一行并将其更改为
+
+#!/usr/bin/python
+到
+#!/usr/bin/python3
+这要求系统使用 Python3 而不是默认的 Python。
+-----------------------------------------------2-------------------------
+```
+mkdir -p ~/.bin
+PATH="${HOME}/.bin:${PATH}"
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+chmod a+rx ~/.bin/repo
+```
+--------------------------------------------3----------------------------------------
+```
+mkdir ~/bin
+PATH=~/bin:$PATH
+git clone https://gerrit-googlesource.lug.ustc.edu.cn/git-repo
+cd git-repo/
+cp repo ~/bin/
+chmod a+x ~/bin/repo
+cd
+cd lineage-18.x-build-gsi
+```
+***********************************************************************************************
+```
+git config --global --unset http.proxy
+```
+或
+```
+git config --global --unset https.proxy
+```
