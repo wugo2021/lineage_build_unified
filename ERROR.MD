@@ -36,3 +36,9 @@ git config --global --unset http.proxy
 ```
 git config --global --unset https.proxy
 ```
+error: Unable to fully sync the tree.
+error: Downloading network changes failed.
+Try re-running with "```-j1 --fail-fast```" to exit at the first error.
+
+
+
