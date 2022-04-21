@@ -34,21 +34,23 @@ First, open a new Terminal window, which defaults to your home directory.  Clone
 
 Create a new working directory for your LineageOS build and navigate to it:
 
-    mkdir lineage-18.x-build-gsi; cd lineage-18.x-build-gsi
+    mkdir lineage-19.x-build-gsi; cd lineage-19.x-build-gsi
 
 
 Initialize your LineageOS workspace:
 
-    repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
+    repo init -u https://github.com/LineageOS/android.git -b lineage-19.1
 
 Clone both this and the patches repos:
 
-    git clone https://github.com/AndyCGYan/lineage_build_unified lineage_build_unified -b lineage-18.1
-    git clone https://github.com/AndyCGYan/lineage_patches_unified lineage_patches_unified -b lineage-18.1
+    git clone https://github.com/AndyCGYan/lineage_build_unified lineage_build_unified -b lineage-19.1
+    git clone https://github.com/AndyCGYan/lineage_patches_unified lineage_patches_unified -b lineage-19.1
 
 Finally, start the build script - for example, to build for all supported archs:
 
     bash lineage_build_unified/buildbot_unified.sh treble 32B A64B 64B
+    .
+        bash lineage_build_unified/buildbot_unified.sh treble 64B
 
 Be sure to update the cloned repos from time to time!
 
