@@ -51,6 +51,7 @@ Finally, start the build script - for example, to build for all supported archs:
     bash lineage_build_unified/buildbot_unified.sh treble A64B A64BG 64B 64BG
     
 .
+
     bash lineage_build_unified/buildbot_unified.sh treble 64B
 
 Be sure to update the cloned repos from time to time!
