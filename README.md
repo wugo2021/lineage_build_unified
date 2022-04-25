@@ -43,42 +43,30 @@ Clone both this and the patches repos:
     git clone https://github.com/wugo2021/lineage_build_unified lineage_build_unified -b lineage-18.1
     git clone https://github.com/wugo2021/lineage_patches_unified lineage_patches_unified -b lineage-18.1
 
+Finally, start the build script
+
+    bash lineage_build_unified/buildbot_unified.sh treble 64B
+
 Finally, start the build script (Dynamic root):
 
     bash lineage_build_unified/buildbot_unified.sh treble 64BZ
     
-or to include AndyCG patch
-    bash lineage_build_unified/buildbot_unified.sh treble personal iceows 64BZ
-
-or to include also Iceows patch
-    bash lineage_build_unified/buildbot_unified.sh treble personal iceows 64BZ
-
-Be sure to update the cloned repos from time to time!
-
----
-
-A-only targets for Huawei hi6250 re generated from AB images instead of source-built - refer to [huawei-creator](https://github.com/wugo2021/sas-creator). HI6250 device refer to [huawei-creator](https://github.com/wugo2021/huawei-creator).
-
-
-	sudo ./run-huawei-aonly.sh "myimage.img"  "LeaOS" 
-
----
-
-
 Finally, start the build script - for example, to build for all supported archs:
 
     bash lineage_build_unified/buildbot_unified.sh treble A64B A64BG 64B 64BG
     
-.
+or to include AndyCG patch
 
-    bash lineage_build_unified/buildbot_unified.sh treble 64B
+    bash lineage_build_unified/buildbot_unified.sh treble personal iceows 64BZ
+
+or to include also Iceows patch
+
+    bash lineage_build_unified/buildbot_unified.sh treble personal iceows 64BZ
 
 Be sure to update the cloned repos from time to time!
 
----
 
 Note: A-only and VNDKLite targets are generated from AB images instead of source-built - refer to [sas-creator](https://github.com/wugo2021/sas-creator). HI6250 device refer to [huawei-creator](https://github.com/wugo2021/huawei-creator).
 
----
 
 This script is also used to make device-specific and/or personal builds. To do so, understand the script, and try the `device` and `personal` keywords.
