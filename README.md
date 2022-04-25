@@ -68,4 +68,20 @@ This script is also used to make builds without sync repo. To do so add nosync i
 
     bash lineage_build_unified/buildbot_unified.sh treble nosync personal iceows 64BZ
 
+Finally, start the build script - for example, to build for all supported archs:
 
+    bash lineage_build_unified/buildbot_unified.sh treble A64B A64BG 64B 64BG
+    
+.
+
+    bash lineage_build_unified/buildbot_unified.sh treble 64B
+
+Be sure to update the cloned repos from time to time!
+
+---
+
+Note: A-only and VNDKLite targets are generated from AB images instead of source-built - refer to [sas-creator](https://github.com/wugo2021/sas-creator). HI6250 device refer to [huawei-creator](https://github.com/wugo2021/huawei-creator).
+
+---
+
+This script is also used to make device-specific and/or personal builds. To do so, understand the script, and try the `device` and `personal` keywords.
