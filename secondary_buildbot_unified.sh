@@ -82,6 +82,9 @@ prep_build() {
 apply_patches() {
     echo "Applying patch group ${1}"
     bash ./lineage_build_unified/apply_patches.sh ./lineage_patches_unified/${1}
+    echo "Applying patch group ${2}"
+    bash ~/treble_experimentations/apply-patches.sh ./lineage_patches_unified/${2}
+}
 }
 
 prep_device() {
