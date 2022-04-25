@@ -70,3 +70,7 @@ Note: A-only and VNDKLite targets are generated from AB images instead of source
 
 
 This script is also used to make device-specific and/or personal builds. To do so, understand the script, and try the `device` and `personal` keywords.
+
+
+
+    bash lineage_build_unified/secondary_buildbot_unified.sh treble personal iceows 64B
