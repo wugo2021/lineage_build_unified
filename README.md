@@ -58,7 +58,7 @@ Be sure to update the cloned repos from time to time!
 
 ---
 
-Note: A-only and VNDKLite targets are generated from AB images instead of source-built - refer to [sas-creator](https://github.com/AndyCGYan/sas-creator).  [huawei-creator](https://github.com/wugo2021/huawei-creator).
+Note: A-only and VNDKLite targets are generated from AB images instead of source-built - refer to [sas-creator](https://github.com/wugo2021/sas-creator). HI6250 device refer to [huawei-creator](https://github.com/wugo2021/huawei-creator).
 
 ---
 
