@@ -57,7 +57,8 @@ Be sure to update the cloned repos from time to time!
 
 ---
 
-A-only targets for Huawei hi6250 re generated from AB images instead of source-built - refer to [huawei-creator](https://github.com/iceows/huawei-creator).
+A-only targets for Huawei hi6250 re generated from AB images instead of source-built - refer to [huawei-creator](https://github.com/wugo2021/sas-creator). HI6250 device refer to [huawei-creator](https://github.com/wugo2021/huawei-creator).
+
 
 	sudo ./run-huawei-aonly.sh "myimage.img"  "LeaOS" 
 
