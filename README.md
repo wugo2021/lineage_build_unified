@@ -40,8 +40,8 @@ Initialize your LineageOS workspace:
 
 Clone both this and the patches repos:
 
-    git clone https://github.com/iceows/lineage_build_unified lineage_build_unified -b lineage-18.1
-    git clone https://github.com/iceows/lineage_patches_unified lineage_patches_unified -b lineage-18.1
+    git clone https://github.com/wugo2021/lineage_build_unified lineage_build_unified -b lineage-18.1
+    git clone https://github.com/wugo2021/lineage_patches_unified lineage_patches_unified -b lineage-18.1
 
 Finally, start the build script (Dynamic root):
 
