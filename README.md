@@ -75,6 +75,6 @@ This script is also used to make device-specific and/or personal builds. To do s
 
     bash lineage_build_unified/secondary_buildbot_unified.sh treble personal iceows 64B
     
-    .
+.
     
     build/soong/soong_ui.bash --make-mode
