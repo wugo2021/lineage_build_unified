@@ -1,7 +1,9 @@
 #!/bin/bash
+#
 PATH="${HOME}/.bin:${PATH}"
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
 chmod a+rx ~/.bin/repo
+#
 echo ""
 echo "LineageOS 19.x Unified Buildbot"
 echo "Executing in 5 seconds - CTRL-C to exit"
