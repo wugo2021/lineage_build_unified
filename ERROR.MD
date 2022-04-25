@@ -9,6 +9,7 @@ File "/home/hu/lineage-18.x-build-gsi/.repo/repo/main.py", line 79
 到
 #!/usr/bin/python3
 这要求系统使用 Python3 而不是默认的 Python。
+
 2.
 
 ```
