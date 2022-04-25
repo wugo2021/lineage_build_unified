@@ -85,7 +85,6 @@ apply_patches() {
     echo "Applying patch group ${2}"
     bash ~/treble_experimentations/apply-patches.sh ./lineage_patches_unified/${2}
 }
-}
 
 prep_device() {
     :
