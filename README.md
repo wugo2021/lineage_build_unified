@@ -39,12 +39,12 @@ Create a new working directory for your LineageOS build and navigate to it:
 
 Initialize your LineageOS workspace:
 
-    repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
+    repo init -u https://github.com/LineageOS/android.git -b lineage-19.0
 
 Clone both this and the patches repos:
 
-    git clone https://github.com/AndyCGYan/lineage_build_unified lineage_build_unified -b lineage-18.1
-    git clone https://github.com/AndyCGYan/lineage_patches_unified lineage_patches_unified -b lineage-18.1
+    git clone https://github.com/wugo2021/lineage_build_unified lineage_build_unified -b lineage-19.0
+    git clone https://github.com/wugo2021/lineage_patches_unified lineage_patches_unified -b lineage-19.0
 
 Finally, start the build script - for example, to build for all supported archs:
 
