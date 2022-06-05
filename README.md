@@ -74,7 +74,7 @@ This script is also used to make device-specific and/or personal builds. To do s
 
 
 
-    bash lineage_build_unified/buildbot_unified.sh treble 64B
+    bash lineage_build_unified/buildbot_unified.sh treble 64BN
     
 .
     
