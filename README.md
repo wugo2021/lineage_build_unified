@@ -13,7 +13,7 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
 sudo apt-get install python3.6
 ```
-Install Repo tool
+安装 Repo 工具
 ```
 mkdir ~/bin
 PATH=~/bin:$PATH
@@ -24,51 +24,51 @@ chmod a+x ~/bin/repo
 cd
 ```
 
-First, open a new Terminal window, create a new working directory for your LineageOS build (leaos for example) and navigate to it:
+首先，打开一个新的终端窗口，为您的 LineageOS 构建（例如 leaos）创建一个新的工作目录并导航到它：
 
     mkdir leaos; cd leaos
     
-Clone the modified treble_experimentations repo there:
+在此处克隆修改后的 treble_experimentations 存储库：
 
-  git clone https://github.com/wugo2021/treble_experimentations
+   git 克隆 https://github.com/wugo2021/treble_experimentations
 
-Initialize your LineageOS workspace:
+初始化您的 LineageOS 工作区：
 
     repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
 
-Clone both this and the patches repos:
+克隆这个和补丁回购：
 
     git clone https://github.com/wugo2021/lineage_build_unified lineage_build_unified -b lineage-18.1
     git clone https://github.com/wugo2021/lineage_patches_unified lineage_patches_unified -b lineage-18.1
 
 
-Finally, start the build script
+最后，启动构建脚本
 
     bash lineage_build_unified/buildbot_unified.sh treble 64B
 
-Finally, start the build script (Dynamic root):
+最后，启动构建脚本（动态根目录）：
 
     bash lineage_build_unified/buildbot_unified.sh treble 64BZ
     
-Finally, start the build script - for example, to build for all supported archs:
+最后，启动构建脚本——例如，为所有支持的架构构建：
 
     bash lineage_build_unified/buildbot_unified.sh treble A64B A64BG 64B 64BG
     
-or to include AndyCG patch
+或包含 AndyCG 补丁
 
     bash lineage_build_unified/buildbot_unified.sh treble personal iceows 64BZ
 
-or to include also Iceows patch
+或者也包括 Iceows 补丁
 
     bash lineage_build_unified/buildbot_unified.sh treble personal iceows 64BZ
 
-Be sure to update the cloned repos from time to time!
+请务必不时更新克隆的存储库！
 
 
-Note: A-only and VNDKLite targets are generated from AB images instead of source-built - refer to [sas-creator](https://github.com/wugo2021/sas-creator). HI6250 device refer to [huawei-creator](https://github.com/wugo2021/huawei-creator).
+注意：A-only 和 VNDKLite 目标是从 AB 图像而不是源代码生成的 - 请参阅 [sas-creator](https://github.com/wugo2021/sas-creator)。 HI6250设备参考[huawei-creator](https://github.com/wugo2021/huawei-creator)。
 
 
-This script is also used to make device-specific and/or personal builds. To do so, understand the script, and try the `device` and `personal` keywords.      
+此脚本还用于制作特定于设备和/或个人的构建。 为此，请理解脚本，并尝试使用“device”和“personal”关键字。     
 
 
 
